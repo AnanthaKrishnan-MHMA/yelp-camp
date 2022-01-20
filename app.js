@@ -1,15 +1,21 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+const Campgroung = require('./models/campground')
 const mongoose = require('mongoose');
-const campgroung = require('./models/campground')
-mongoose.connect('mongodb://localhost:27017/yelp-camp',{
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useUnifiedTopology: true
-});
+mongoose.connect('mongodb://localhost:27017/yelp-camp');
+const db = mongoose.connection;
+db.on('error',console.error.bind(console,"connection error"));
+db.once('open',()=>{
+    console.log("Database connected")
+})
 
 app.set('view engine','ejs')
 app.set('views',path.join(__dirname,'views'))
 
-
+app.get('/',(req,res)=>{
+    res.send("welecome to yelpcamp")
+})
+app.listen(3000,()=>{
+    console.log("listening to port 3000")
+})
