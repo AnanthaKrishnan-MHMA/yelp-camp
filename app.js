@@ -27,20 +27,41 @@ app.get('/campgrounds',async (req,res)=>{
     const campgrounds = await Campground.find({})
     res.render('campgrounds/index',{campgrounds})
 })
+app.get('/campgrounds/new',(req,res)=>{
+    res.render('campgrounds/new')
+})
+app.post('/campgrounds',async (req,res)=>{
+    console.log(req.body)
+    const campground = new Campground(req.body)
+    await campground.save();
+    const id = campground._id
+    res.redirect(`/campgrounds/${id}`)
+})
+
 app.get('/campgrounds/:id',async (req,res)=>{
    const {id} = req.params
    const campground = await Campground.findById(id)
    res.render('campgrounds/show',{campground})
 })
-app.post('/campgrounds/:id',async (req,res)=>{
+app.put('/campgrounds/:id',async (req,res)=>{
    const {id} = req.params
    const campground = await Campground.findByIdAndUpdate(id,req.body)
    res.redirect(`/campgrounds/${campground._id}`)
+})
+app.delete('/campgrounds/:id',async (req,res)=>{
+   const {id} = req.params
+   const campground = await Campground.findByIdAndDelete(id)
+   res.redirect(`/campgrounds`)
 })
 app.get('/campgrounds/:id/edit',async (req,res)=>{
     const {id} = req.params
     const campground = await Campground.findById(id)
     res.render('campgrounds/edit',{campground})
+})
+app.get('/campgrounds/:id/delete',async (req,res)=>{
+    const {id} = req.params
+    const campground = await Campground.findById(id)
+    res.render('campgrounds/delete',{campground})
 })
 // app.get('/',(req,res)=>{
 //     res.render('')

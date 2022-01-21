@@ -10,7 +10,7 @@
 
 <body>
     <h1>Edit <%= campground.title %>... </h1>
-    <form action="/campgrounds/<%= campground._id %> " method="post">
+    <form action="/campgrounds/<%= campground._id %>?_method=PUT " method="post">
         <div>
             <label for="title">Title</label>
             <input type="text" name="title" id="title" value="<%= campground.title %> ">
@@ -21,7 +21,7 @@
         </div>
         <button>submit</button>
     </form>
-    <a href="/campgrounds/<%= campground._id %>"></a>
+    <a href="/campgrounds/<%= campground._id %>">Cancel</a>
 </body>
 
 </html>

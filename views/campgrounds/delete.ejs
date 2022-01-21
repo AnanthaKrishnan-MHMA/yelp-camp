@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>delete</title>
+</head>
+<body>
+    <h2>IMPORTANT</h2>
+    <h3>Are you sure you want to delete <%= campground.title %>?</h3>
+    <form action="/campgrounds/<%= campground._id %>?_method=DELETE " method="post">
+    <button type="submit">Yes</button>
+    <button ><a href="/campgrounds/<%= campground._id %>">cancel</a></button>
+    </form>
+</body>
+</html>
