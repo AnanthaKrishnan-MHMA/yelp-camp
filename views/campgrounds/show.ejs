@@ -1,29 +1,20 @@
-<% layout('layouts/boilerplate') %> 
-    <h1><%= campground.title %> details</h1>
-    <div>
-        <span>Title : <%= campground.title %> </span>
-    </div>
-    <div>
-        <span>Location : <%= campground.location %> </span>
-    </div>
-    <div>
-        <span>Price: $<%= campground.price %> </span>
-    </div>
-    <div>
-        <figure>
-            <img class="mw-100" src="<%= campground.image %>" alt="">
-        </figure>
-    </div>
-    <div>
-        <span>Description : <%= campground.description %> </span>
-    </div>
-    
-    <div>
-        <a href="/campgrounds/<%= campground._id %>/edit">Edit</a>
-    </div>
-    <div>
-        <a href="/campgrounds/<%= campground._id %>/delete">delete</a>
-    </div>
-    <div>
-        <a href="/campgrounds">Back</a>
+<% layout('layouts/boilerplate') %>
+    <div class="card mb-3">
+        <img src="<%= campground.image %>" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">
+                <%= campground.title %>
+            </h5>
+            <p class="card-text">Price: $<%= campground.price %>
+            </p>
+            <p class="card-text">
+                <%= campground.description %>
+            </p>
+            <p class="card-text"><small class="text-muted">
+                    <%= campground.location %>
+                </small></p>
+            <a class="btn btn-info" href="/campgrounds/<%= campground._id %>/edit">Edit</a>
+            <a class="btn btn-danger" href="/campgrounds/<%= campground._id %>/delete">delete</a>
+            <a class="btn btn-secondary" href="/campgrounds">Back</a>
+        </div>
     </div>
