@@ -9,6 +9,18 @@
             <label for="location">Location</label>
             <input type="text" name="location" id="location">
         </div>
+        <div>
+            <label for="price">Price</label>
+            <input type="number" name="price" id="price" value="$<%= campground.price %>">
+        </div>
+        <div>
+            <label for="image">Image</label>
+            <input type="text" name="image" id="image" value="<%= campground.image %> ">
+        </div>
+        <div>
+            <label for="description">Description</label>
+            <input type="text" name="description" id="description" value="<%= campground.description %> ">
+        </div>
         <button>Create</button>
     </form>
     <a href="/campgrounds">Cancel</a>

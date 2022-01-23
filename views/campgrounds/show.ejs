@@ -7,6 +7,18 @@
         <span>Location : <%= campground.location %> </span>
     </div>
     <div>
+        <span>Price: $<%= campground.price %> </span>
+    </div>
+    <div>
+        <figure>
+            <img src="<%= campground.image %>" alt="">
+        </figure>
+    </div>
+    <div>
+        <span>Description : <%= campground.description %> </span>
+    </div>
+    
+    <div>
         <a href="/campgrounds/<%= campground._id %>/edit">Edit</a>
     </div>
     <div>
