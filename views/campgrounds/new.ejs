@@ -1,26 +1,33 @@
-<% layout('layouts/boilerplate') %> 
-    <h1>Create new campground</h1>
+<% layout('layouts/boilerplate') %>
+    <h1 class="mb-3">Create new campground</h1>
     <form action="/campgrounds" method="post">
-        <div>
-            <label for="title">Title</label>
-            <input type="text" name="title" id="title">
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" class="form-control" id="title" name="title" aria-describedby="title">
         </div>
-        <div>
-            <label for="location">Location</label>
-            <input type="text" name="location" id="location">
+        <div class="mb-3">
+            <label for="location" class="form-label">Location</label>
+            <input type="text" class="form-control" id="location" name="location" aria-describedby="location">
         </div>
-        <div>
-            <label for="price">Price</label>
-            <input type="number" name="price" id="price" value="$<%= campground.price %>">
+        <div class="mb-3">
+            <label for="price" class="form-label">Price</label>
+            <div class="input-group">
+                <span class="input-group-text" id="price">$</span>
+                <input type="number" class="form-control" name="price" placeholder="0.00" aria-label="price"
+                    aria-describedby="price">
+            </div>
         </div>
-        <div>
-            <label for="image">Image</label>
-            <input type="text" name="image" id="image" value="<%= campground.image %> ">
+        <div class="mb-3">
+            <label for="image" class="form-label">Image url</label>
+            <input type="text" class="form-control" id="image" name="image" aria-describedby="image">
         </div>
-        <div>
-            <label for="description">Description</label>
-            <input type="text" name="description" id="description" value="<%= campground.description %> ">
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea type="text" class="form-control" id="description" name="description"
+                aria-describedby="description"></textarea>
         </div>
-        <button>Create</button>
+        <div class="mb-3">
+            <button class="btn btn-primary">Create</button>
+        </div>
     </form>
     <a href="/campgrounds">Cancel</a>
